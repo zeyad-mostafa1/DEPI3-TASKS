@@ -31,8 +31,6 @@ docker exec -it {container_id} /bin/sh
 ```
 Lets you access the shell of a running container.
 
-These commands are useful especially when you want to move Docker images without an internet connection.
-
 ---
 
 # How to Run Spring PetClinic Application
