@@ -80,4 +80,4 @@ Runs the generated JAR file on port 8080.
 
 The following image shows the application running successfully on your local machine:
 
-![Application Screenshot](./my-app.png)
+![Application Screenshot](./my-app.PNG)
