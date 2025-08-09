@@ -1,0 +1,20 @@
+# Use a lightweight OpenJDK 17 image
+FROM openjdk:17-jdk-slim
+
+# Define a build-time variable for the JAR file location
+ARG JAR_FILE=target/*.jar
+
+# Set an environment variable for the application home directory
+ENV APP_HOME=/app
+
+# Set the working directory inside the container
+WORKDIR $APP_HOME
+
+# Copy all project files into the container
+COPY . .
+
+# Build the project without running tests, then copy the JAR to app.jar
+RUN ./mvnw package -DskipTests && cp ${JAR_FILE} app.jar
+
+# Run the application using Java
+ENTRYPOINT ["java", "-jar", "app.jar"]

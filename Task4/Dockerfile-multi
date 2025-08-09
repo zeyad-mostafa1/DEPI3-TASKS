@@ -1,0 +1,8 @@
+FROM openjdk:17-jdk-slim
+ARG JAR_FILE=target/*.jar
+ENV APP_HOME=/app
+WORKDIR $APP_HOME
+COPY . .
+RUN ./mvnw package -DskipTests
+RUN cp ${JAR_FILE} app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
